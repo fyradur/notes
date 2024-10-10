@@ -1,0 +1,6 @@
+#+TITLE: Notes
+#+DESCRIPTION: This repo contains various notes
+* Relevant notes
+
+[[/Statistical Methods/Lecture 9/file.pdf][Statistical Methods Lecture 9 notes]]
+
