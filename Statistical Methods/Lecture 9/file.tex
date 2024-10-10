@@ -1,4 +1,4 @@
-% Created 2024-10-10 Thu 16:26
+% Created 2024-10-10 Thu 17:04
 % Intended LaTeX compiler: pdflatex
 
         \documentclass[10pt]{article}
@@ -170,8 +170,8 @@
 \title{{Lecture 9 notes}\\{\normalsize{\itshape Statistical Methods}}}
 \pagestyle{fancynotes}
 \maketitle
-\section{Page 1}
-\label{sec:orga35b256}
+\section{MVUE}
+\label{sec:orgb0d0440}
 Minimal Variance Unbiased Estimator (MVUE):
 
 \begin{theorem}[Lehman-Schally] \label{thm:Lehman-Schally}
@@ -201,18 +201,21 @@ F_n (u, (X_1, \dots , X_n)) =  n  ^{ - 1} \sum_{ i = 0 }^{ n } I  _{( - u, u)} (
 \end{align*}
 \end{definition}
 
-\subsection{Order statistics}
-\label{sec:orgdf3db58}
+\section{Order statistics}
+\label{sec:orgaf8312e}
 \begin{align*}
 X_1 , \dots , X_n  \Rightarrow X  _{(1)} \leq X _{(2)} \leq \dots \leq X  _{(n)} 
 \end{align*}
-[!!image 1]
+\begin{center}
+\includegraphics[angle=0,width=10cm]{./img/order.png}
+\end{center}
+
 
 \begin{theorem}[Glivenko-Conteli] \label{thm:Glivenko-Conteli}
 \begin{align*}
-F_n \rightarrow _{n \to \infty } F
+F_n \rightarrow F
 \end{align*}
-[!add type of convergence]
+as \(n \rightarrow \infty\) "in some sense".
 \end{theorem}
 
 
@@ -231,12 +234,22 @@ P( - 1.96  \frac{\sigma }{\sqrt{n}}\leq \overline{X} - \mu \leq 1.96 \frac{\sigm
 P( - 1.96  \frac{\sigma }{\sqrt{n}} - \overline{X} \leq - \mu \leq 1.96 \frac{\sigma }{\sqrt{n}} - \overline{X})  &  =  95 \%  / -  ( - 1) \\
 P( \overline{X} - 1.96  \frac{\sigma }{\sqrt{n}}  \leq  \mu \leq \overline{X} + 1.96 \frac{\sigma }{\sqrt{n}})  &  =  95 \%.
 \end{align*}
+\begin{center}
+\includegraphics[angle=0,width=10cm]{./img/bell.png}
+\end{center}
+
+\begin{definition}[Quantile]  \label{def:Quantile}
+\(z _{\alpha }\) is defined as to satisfy the following equation:
+\begin{align*}
+P(z \geq z _{\alpha } ) = \alpha .
+\end{align*}
+\end{definition}
+
+
 \begin{definition}[Confidence Interval]  \label{def:Confidence_Interval}
 A RANDOM interval \((L,U)\)
 
-\([L,U]\)
-[?]
-is a confidence interval for parameter \(\theta\) with confidence level \(\alpha\) if
+\([L,U]\) is a confidence interval for parameter \(\theta\) with confidence level \(\alpha\) if
 \begin{align*}
 P(L \leq \theta \leq U) =  1 - \alpha
 \end{align*}
@@ -245,12 +258,18 @@ Confidence interval \((L,U)\) covers \(\theta\) with \(1 - \alpha\) probability.
 \end{definition}
 
 
+
 \begin{align*}
 \overline{X} \pm z  _{\frac{\alpha}{2}} \cdot \frac{\sigma }{\sqrt{n}}
 \end{align*}
 is a \(\alpha\)-level confidence interval for \(\mu\).
 
-Show:
+\begin{exercise}[]  \label{exe:}
+\begin{center}
+\includegraphics[angle=0,width=5cm]{./img/exe1.png}
+\end{center}
+\end{exercise}
+
 
 \begin{exercise}[]  \label{exe:}
 Show
@@ -258,8 +277,6 @@ Show
 \((\overline{X} -  Z _{\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}}, \infty)\) are also \((1 - \alpha )\)-confidence intervals for \(\mu\).
 \end{exercise}
 
-\subsubsection{exe:}
-\label{sec:org2b5fc0d}
 \begin{exercise}[]  \label{exe:}
 Show sizes of confidence intervals.
 \end{exercise}
@@ -303,9 +320,9 @@ Thus:
 Quantile of \(\chi  _{n} ^2\) of \(1 - \alpha\) level \(\chi ^2  _{\alpha } (n)\) is a point s.t.
 \(P(Y \geq \chi  _{\alpha } ^2 (n)) = \alpha\), \(Y \sim X _{n} ^2\)
 
-[!Insert two graphs]
-
-[!Insert associated calculations]
+\begin{center}
+\includegraphics[angle=0,width=10cm]{./img/chi.png}
+\end{center}
 
 
 \begin{theorem}[] \label{thm:}
@@ -328,8 +345,8 @@ Show \(\overline{X} \pm t _{\alpha  / 2} (n - 1) \cdot \frac{s}{\sqrt{n}}\) is a
 \end{exercise}
 
 
-\subsection{Statistical Hypothesis Testing}
-\label{sec:org257db6e}
+\section{Statistical Hypothesis Testing}
+\label{sec:org143dc20}
 
 
 \begin{align*}

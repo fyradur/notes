@@ -11,7 +11,7 @@
 #+LATEX:\title{{Lecture 9 notes}\\{\normalsize{\itshape Statistical Methods}}}
 #+LATEX:\pagestyle{fancynotes}
 #+LATEX:\maketitle
-* Page 1
+* MVUE
 Minimal Variance Unbiased Estimator (MVUE):
 
 ** thm: Lehman-Schally :ignore:
@@ -43,18 +43,20 @@ F_n (u, (X_1, \dots , X_n)) =  n  ^{ - 1} \sum_{ i = 0 }^{ n } I  _{( - u, u)} (
 \end{align*}
 #+LATEX: \end{definition}
 
-** Order statistics
+* Order statistics
 \begin{align*}
 X_1 , \dots , X_n  \Rightarrow X  _{(1)} \leq X _{(2)} \leq \dots \leq X  _{(n)} 
 \end{align*}
-[!!image 1]
+#+ATTR_LATEX: :width 10cm :options angle=0
+[[./img/order.png]]
 
-*** thm: Glivenko-Conteli :ignore:
+
+** thm: Glivenko-Conteli                                           :ignore:
 #+LATEX: \begin{theorem}[Glivenko-Conteli] \label{thm:Glivenko-Conteli}
 \begin{align*}
-F_n \rightarrow _{n \to \infty } F
+F_n \rightarrow F
 \end{align*}
-[!add type of convergence]
+as \( n \rightarrow \infty  \) "in some sense".
 #+LATEX: \end{theorem}
 
 
@@ -73,13 +75,23 @@ P( - 1.96  \frac{\sigma }{\sqrt{n}}\leq \overline{X} - \mu \leq 1.96 \frac{\sigm
 P( - 1.96  \frac{\sigma }{\sqrt{n}} - \overline{X} \leq - \mu \leq 1.96 \frac{\sigma }{\sqrt{n}} - \overline{X})  &  =  95 \%  / -  ( - 1) \\
 P( \overline{X} - 1.96  \frac{\sigma }{\sqrt{n}}  \leq  \mu \leq \overline{X} + 1.96 \frac{\sigma }{\sqrt{n}})  &  =  95 \%.
 \end{align*}
-*** def: Confidence Interval :ignore:
+#+ATTR_LATEX: :width 10cm :options angle=0
+[[./img/bell.png]]
+
+** def: Quantile :ignore:
+#+LATEX: \begin{definition}[Quantile]  \label{def:Quantile}
+\( z _{\alpha }  \) is defined as to satisfy the following equation:
+\begin{align*}
+P(z \geq z _{\alpha } ) = \alpha .
+\end{align*}
+#+LATEX: \end{definition}
+
+
+** def: Confidence Interval                                        :ignore:
 #+LATEX: \begin{definition}[Confidence Interval]  \label{def:Confidence_Interval}
 A RANDOM interval \( (L,U) \)
 
-\( [L,U] \)
-[?]
-is a confidence interval for parameter \( \theta  \) with confidence level \( \alpha  \) if
+\( [L,U] \) is a confidence interval for parameter \( \theta  \) with confidence level \( \alpha  \) if
 \begin{align*}
 P(L \leq \theta \leq U) =  1 - \alpha
 \end{align*}
@@ -88,21 +100,27 @@ Confidence interval \( (L,U) \) covers \( \theta  \) with \( 1 - \alpha  \) prob
 #+LATEX: \end{definition}
 
 
+
 \begin{align*}
 \overline{X} \pm z  _{\frac{\alpha}{2}} \cdot \frac{\sigma }{\sqrt{n}}
 \end{align*}
 is a \( \alpha  \)-level confidence interval for \( \mu  \).
 
-Show:
+** exe:  :ignore:
+#+LATEX: \begin{exercise}[]  \label{exe:}
+#+ATTR_LATEX: :width 5cm :options angle=0
+[[./img/exe1.png]]
+#+LATEX: \end{exercise}
 
-*** exe:  :ignore:
+
+** exe:                                                            :ignore:
 #+LATEX: \begin{exercise}[]  \label{exe:}
 Show
 \(( - \infty , \overline{X} + Z  _{\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}})   \) and
 \( (\overline{X} -  Z _{\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}}, \infty) \) are also \( (1 - \alpha ) \)-confidence intervals for \( \mu  \).
 #+LATEX: \end{exercise}
 
-*** exe: 
+** exe:                                                            :ignore:
 #+LATEX: \begin{exercise}[]  \label{exe:}
 Show sizes of confidence intervals.
 #+LATEX: \end{exercise}
@@ -129,7 +147,7 @@ Let \( X_i \sim \text{N}(\mu , \sigma^2)  \). Since \( \frac{X_i -  \mu }{\sigma
 \end{align*}
 
 
-*** def: Sample Variance :ignore:
+** def: Sample Variance                                            :ignore:
 #+LATEX: \begin{definition}[Sample Variance]  \label{def:Sample_Variance}
 \begin{align*}
 s ^2  &  = \sum_{ i = 1 }^{ n } \frac{(X_i - \overline{X})^2 }{n - 1}
@@ -138,7 +156,7 @@ s ^2  &  = \sum_{ i = 1 }^{ n } \frac{(X_i - \overline{X})^2 }{n - 1}
 
 Thus:
 
-*** thm:  :ignore:
+** thm:                                                            :ignore:
 #+LATEX: \begin{theorem}[] \label{thm:}
 \begin{align*}
 \frac{n - 1}{\sigma ^2 } s^2  \sim \chi  _{n - 1} ^2 .
@@ -148,12 +166,11 @@ Thus:
 Quantile of \( \chi  _{n} ^2  \) of \( 1 - \alpha  \) level \( \chi ^2  _{\alpha } (n) \) is a point s.t.
 \( P(Y \geq \chi  _{\alpha } ^2 (n)) = \alpha  \), \( Y \sim X _{n} ^2  \)
 
-[!Insert two graphs]
+#+ATTR_LATEX: :width 10cm :options angle=0
+[[./img/chi.png]]
 
-[!Insert associated calculations]
 
-
-*** thm:  :ignore:
+** thm:                                                            :ignore:
 #+LATEX: \begin{theorem}[] \label{thm:}
 Let \( X_1, \dots , X_n \) be on i.i.d sample from \( \text{N}(\mu , \sigma^2)  \), where
 \( \mu  \) and \( \delta  \) are unknow, then,
@@ -169,13 +186,13 @@ Let \( X_i \sim \text{N}(\mu , \sigma^2)  \) then
 \end{align*}
 where \( s = \sqrt{s^2 } \).
 
-*** exe:  :ignore:
+** exe:                                                            :ignore:
 #+LATEX: \begin{exercise}[]  \label{exe:}
 Show \( \overline{X} \pm t _{\alpha  / 2} (n - 1) \cdot \frac{s}{\sqrt{n}} \) is a \( 1 - \alpha  \) level quantile for \( \mu  \).
 #+LATEX: \end{exercise}
 
 
-** Statistical Hypothesis Testing
+* Statistical Hypothesis Testing
 
 
 \begin{align*}
