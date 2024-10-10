@@ -1,5 +1,8 @@
 #+TITLE: Notes
-#+DESCRIPTION: This repo contains various notes
+* Description
+This repo contains various of my notes.
+* Disclaimer
+These notes probably contain a lot of misstakes haha.
 * Relevant notes
 
 [[/Statistical Methods/Lecture 9/file.pdf][Statistical Methods Lecture 9 notes]]
